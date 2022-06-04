@@ -1,5 +1,14 @@
+import mongoose, { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+
+export type GroceryItemDocument = GroceryItem & Document;
+
+@Schema({ timestamps: true })
 export class GroceryItem {
-  id: string;
+  @Prop({ required: true, type: String })
   name: string;
-  expiryDate: Date;
+  @Prop({ required: false, type: Date })
+  expiryDate?: Date;
 }
+
+export const GroceryItemSchema = SchemaFactory.createForClass(GroceryItem);

@@ -27,7 +27,7 @@ export class GroceryItemController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.groceryItemService.findOne(+id);
+    return this.groceryItemService.findOne(id);
   }
 
   @Patch(':id')
@@ -35,11 +35,11 @@ export class GroceryItemController {
     @Param('id') id: string,
     @Body() updateGroceryItemDto: UpdateGroceryItemDto,
   ) {
-    return this.groceryItemService.update(+id, updateGroceryItemDto);
+    return this.groceryItemService.update(id, updateGroceryItemDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.groceryItemService.remove(+id);
+    return this.groceryItemService.remove(id);
   }
 }
