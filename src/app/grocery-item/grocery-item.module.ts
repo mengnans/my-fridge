@@ -1,14 +1,9 @@
-import { GroceryItem, GroceryItemSchema } from './grocery-item.model';
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { GroceryItemService } from './grocery-item.service';
+import { GroceryItemController } from './grocery-item.controller';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([
-      { name: GroceryItem.name, schema: GroceryItemSchema },
-    ]),
-  ],
+  controllers: [GroceryItemController],
   providers: [GroceryItemService],
 })
 export class GroceryItemModule {}
