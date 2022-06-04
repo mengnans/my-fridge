@@ -2,6 +2,7 @@ import { GroceryItem, GroceryItemSchema } from './grocery-item.model';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GroceryItemService } from './grocery-item.service';
+import { GroceryItemResolver } from './grocery-item.resolver';
 
 @Module({
   imports: [
@@ -9,6 +10,6 @@ import { GroceryItemService } from './grocery-item.service';
       { name: GroceryItem.name, schema: GroceryItemSchema },
     ]),
   ],
-  providers: [GroceryItemService],
+  providers: [GroceryItemService, GroceryItemResolver],
 })
 export class GroceryItemModule {}
